@@ -8,12 +8,13 @@ router.get('/notes', (req,res) => {
 })
 
 router.post("/notes", (req, res) => {
-    const note = JSON.parse(fs.readFileSync("./db/db.json"));
+    // const note = JSON.parse(fs.readFileSync("./db/db.json"));
     const newNote = req.body;
-    newNote.id = uuid();
-    note.push(newNote);
-    fs.writeFileSync("./db.db.json", JSON.stringify(note));
-    res.json(note);
+    console.log(newNote);
+    // newNote.id = uuid();
+    // note.push(newNote);
+    // fs.writeFileSync("./db.db.json", JSON.stringify(note));
+    // res.json(note);
 
 })
 
