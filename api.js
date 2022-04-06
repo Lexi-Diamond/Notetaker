@@ -4,7 +4,7 @@ const router = require('express').Router();
 
 router.get('/notes', (req,res) => {
     const data = fs.readFileSync("./db/db.json");
-    jes.json(JSON.parse(data));
+    res.json(JSON.parse(data));
 })
 
 router.post("/notes", (req, res) => {
