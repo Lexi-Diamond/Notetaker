@@ -9,12 +9,12 @@ router.get('/notes', (req,res) => {
 
 router.post("/notes", (req, res) => {
     // const note = JSON.parse(fs.readFileSync("./db/db.json"));
-    // const newNote = req.body;
-    console.log(req.body);
-    // newNote.id = uuid();
-    // note.push(newNote);
-    // fs.writeFileSync("./db.db.json", JSON.stringify(note));
-    // res.json(note);
+    const newNote = req.body;
+    newNote.id = uuid.v4();
+    console.log(newNote);
+    note.push(newNote);
+    fs.writeFileSync("./db.db.json", JSON.stringify(newNote));
+    res.json(newNote);
 
 })
 
