@@ -8,7 +8,7 @@ router.get('/notes', (req,res) => {
 })
 
 router.post("/notes", (req, res) => {
-    // const note = JSON.parse(fs.readFileSync("./db/db.json"));
+    const note = JSON.parse(fs.readFileSync("./db/db.json"));
     const newNote = req.body;
     newNote.id = uuid.v4();
     console.log(newNote);
