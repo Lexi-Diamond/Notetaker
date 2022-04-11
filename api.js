@@ -8,20 +8,24 @@ router.get('/notes', (req,res) => {
 })
 
 router.post("/notes", (req, res) => {
-    const note = JSON.parse(fs.readFileSync("./db/db.json"));
-    const newNote = req.body;
+    const {noteTitle, noteText} = req.body;
+    const newNote = {noteTitle, noteText};
     newNote.id = uuid.v4();
-    console.log(newNote);
-    note.push(newNote);
-    fs.writeFileSync("./db.db.json", JSON.stringify(newNote));
-    res.json(newNote);
+    // console.log(newNote);
+    // note.push(newNote);
+    var allNotes = JSON.parse(fs.readFileSync("./db/db.json"));
+    console.log(allNotes);
+    const 
+    // fs.writeFileSync("./db/db.json", JSON.stringify(newNote));
+    // res.json(newNote);
+    
 
 })
 
 router.delete('/notes/:id', (req, res) => {
-    const note = JSON.parse(ds.readFileSync('./db.db.json'));
+    const note = JSON.parse(ds.readFileSync('./db/db.json'));
     const deleteNote = note.filter((rmvNote) => rmvNote.id !== req.params.id);
-    fs.writeFileSync('./db.db.json', JSON.stringify(deleteNote));
+    fs.writeFileSync('./db/db.json', JSON.stringify(deleteNote));
     res.json(deleteNote);
 })
 
