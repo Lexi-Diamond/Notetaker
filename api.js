@@ -8,16 +8,17 @@ router.get('/notes', (req,res) => {
 })
 
 router.post("/notes", (req, res) => {
-    const {noteTitle, noteText} = req.body;
-    const newNote = {noteTitle, noteText};
+    const {title, text} = req.body;
+    const newNote = {title, text};
     newNote.id = uuid.v4();
     // console.log(newNote);
     // note.push(newNote);
-    var allNotes = JSON.parse(fs.readFileSync("./db/db.json"));
+    var allNotes = JSON.parse(fs.readFileSync("./db/db.json")); 
+    allNotes.push(newNote)
+    fs.writeFileSync("./db/db.json", JSON.stringify(allNotes));
     console.log(allNotes);
-    const 
-    // fs.writeFileSync("./db/db.json", JSON.stringify(newNote));
-    // res.json(newNote);
+    res.json(allNotes)
+
     
 
 })
